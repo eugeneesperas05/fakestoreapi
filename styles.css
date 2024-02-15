@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+  background: #262626;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-height: 50px;
+  background: #262626;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 0 20px tomato;
+}
+nav span {
+  color: tomato;
+  font-weight: bolder;
+}
+nav ul li {
+  list-style-type: none;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+nav ul li a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: tomato;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.4s;
+}
+nav ul li a:hover::after {
+  cursor: pointer;
+  width: 100%;
+  cursor: pointer;
+}
+#dropdown option {
+  background: tomato;
+  font-size: 1.3rem;
+  color: #fff;
+}
+#dropdown option:hover {
+  cursor: pointer;
+}
+#dropdown option:checked {
+  background: rgb(207, 66, 41);
+}
+.nav-left {
+  font-size: 2rem;
+}
+
+.nav-right {
+  display: inline-block;
+  margin-right: 2rem;
+  font-size: 1.5em;
+}
+.nav-right select {
+  background: none;
+  font-size: 1em;
+  border: none;
+  color: #fff;
+  font-weight: 100;
+}
+.nav-right select option {
+  background: gray;
+  margin: 100px;
+}
+#login {
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  background: tomato;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: absolute;
+  right: 5%;
+  top: 12px;
+}
+#login:hover {
+  background: rgb(245, 143, 125);
+  cursor: pointer;
+}
+
+/* body content style */
+.body-container {
+  width: 100%;
+  height: auto;
+}
+
+.card-container {
+  width: 90%;
+  margin: 8% 5% 0 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  position: relative;
+}
+.card-container #card-h2 {
+  position: absolute;
+  top: 13%;
+  left: 6%;
+  font-size: 4rem;
+}
+.card-container .card {
+  flex-basis: 15%;
+  background: #474444;
+  margin-bottom: 2rem;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  box-shadow: 8px 8px 20px #f3af48;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+}
+.card-container .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 8px 8px 20px #6decf5;
+}
+.card-container .card-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px 10px 0 0;
+}
+.card-container .card .card-text {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+  padding-bottom: 40px;
+}
+.card-container .card .title {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+.card-container .card .price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: tomato;
+  position: absolute;
+  bottom: 10px;
+}
+.card-container .card .addtocart {
+  background: tomato;
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  align-self: center;
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.card-container .card .addtocart:hover {
+  background: rgb(184, 45, 20);
+}
+/* preview popup */
+.view {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background: rgba(60, 65, 60, 0.692);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.preview-card-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 10%;
+}
+.preview-card-container .preview-card {
+  display: flex;
+  background: #262626;
+  width: 100%;
+  height: 80vh;
+}
+
+.preview-card-container .preview-card-image {
+  flex-basis: 40%;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+}
+.preview-card-container .preview-card-image .card-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.preview-card-container .preview-card-text {
+  flex-basis: 60%;
+  padding: 50px;
+}
+.preview-card-text p {
+  padding: 40px;
+  background: #2d2d2d;
+}
+.preview-card-text .price {
+  font-size: 5rem;
+}
+.preview-card-text span {
+  color: tomato;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+/* * {
+  border: 1px solid aqua;
+} */

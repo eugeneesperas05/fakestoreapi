@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Fake Store Api</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <h3 class="nav-left">Fake<span>Store</span>Api</h3>
+        <ul>
+          <li class="nav-right">
+            <select id="dropdown">
+              <option value="">Category</option>
+              <option value="1">Men's</option>
+              <option value="2">Women's</option>
+              <option value="3">Children's</option>
+            </select>
+          </li>
+          <li class="nav-right">
+            <a href="#">Product</a>
+          </li>
+          <li class="nav-right"><a href="#">Cart</a></li>
+          <button id="login">Login</button>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- card added dynamically -->
+    <div class="body-container">
+      <h2 id="card-h2">Best Seller</h2>
+      <div class="card-container"></div>
+    </div>
+    <!-- items click to pop this up -->
+    <div class="view"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
