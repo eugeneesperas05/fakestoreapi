@@ -8,9 +8,9 @@ fetch("https://fakestoreapi.com/products")
       cardCont.innerHTML = "";
 
       // Get the first 5 items from the JSON data
-      const firstFiveItems = json.slice(0, 19);
+      // const firstFiveItems = json.slice(0, 19);
 
-      firstFiveItems.forEach((item) => {
+      json.forEach((item) => {
         // Create card elements
         const card = document.createElement("div");
         card.classList.add("card");
@@ -26,7 +26,7 @@ fetch("https://fakestoreapi.com/products")
         // Set card content
         cardText.innerHTML = `
        <p class="title">${item.title}</p>
-        <p class="price">₱${item.price.toFixed(2)}</p>
+        <p class="price">$${item.price.toFixed(2)}</p>
       `;
 
         // Append card elements to card container
@@ -38,7 +38,12 @@ fetch("https://fakestoreapi.com/products")
         card.addEventListener("click", () => {
           const view = document.querySelector(".view");
           view.style.display = "block";
+          // view.style.height = window.innerHeight + "px";
+          // document.body.style.overflow = "hidden";
 
+          const xBtn = document.createElement("div");
+          xBtn.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+          xBtn.classList.add("x-btn");
           const previewCardContainer = document.createElement("div");
           previewCardContainer.classList.add("preview-card-container");
           const previewCard = document.createElement("div");
@@ -49,29 +54,72 @@ fetch("https://fakestoreapi.com/products")
           previewCardText.classList.add("preview-card-text");
 
           previewCardText.innerHTML = `
-            <p class="category"><span id="category">Category: </span>${item.category.toUpperCase()}</p>
-              <p class="description"><span id="description">Description: </span><br>${
-                item.description
-              }</p>
-              <p class="title"><span id="title">Title: </span>${item.title}</p>
-              <p class="rating"><span id="rating">Rating: </span>${
-                item.rating.rate
-              } ⭐ / ${item.rating.count}</p>
-              <p class="price"><span id="price">Price: </span>₱${item.price}</p>
+            <p id="category">${item.category.toUpperCase()}</p>
+              <p id="description">${item.description}</p>
+              <p id="title">${item.title}</p>
+              <p id="rating">${item.rating.rate} ⭐ / ${item.rating.count}</p>
+              <p id="price"><span>$</span>${item.price}</p>
             `;
 
+          xBtn.addEventListener("click", () => {
+            card.style.display = "block";
+            view.style.display = "none";
+            document.body.style.overflow = "auto";
+            view.innerHTML = "";
+          });
+
           // + and - button
-          const minusBtn = document.createElement("div");
-          const plusBtn = document.createElement("div");
-          const inputQty = document.createElement("input");
+          const buttonContainer = document.createElement("div");
+          let minusBtn = document.createElement("button");
+          let plusBtn = document.createElement("button");
+          let inputQty = document.createElement("input");
+          const clonedAddCartBtn = addCartBtn.cloneNode(true);
+
+          minusBtn.textContent = "-";
+          plusBtn.textContent = "+";
 
           view.appendChild(previewCardContainer);
           previewCardContainer.appendChild(previewCard);
           previewCard.appendChild(previewCardImage);
+          previewCard.appendChild(xBtn);
 
           const clonedCardImage = cardImage.cloneNode(true);
           previewCardImage.appendChild(clonedCardImage);
           previewCard.appendChild(previewCardText);
+
+          previewCardText.appendChild(buttonContainer);
+          buttonContainer.appendChild(minusBtn);
+          buttonContainer.appendChild(inputQty);
+          buttonContainer.appendChild(plusBtn);
+          buttonContainer.appendChild(clonedAddCartBtn);
+
+          inputQty.value = 0;
+          const subtracBtn = () => {
+            minusBtn.addEventListener("click", () => {
+              if (inputQty.value == 0) {
+                inputQty.value = 0;
+              } else {
+                inputQty.value -= 1;
+              }
+            });
+            return inputQty.value;
+          };
+          subtracBtn();
+
+          const addBtn = () => {
+            plusBtn.addEventListener("click", () => {
+              ++inputQty.value;
+            });
+            return inputQty.value;
+          };
+          addBtn();
+          clonedAddCartBtn.addEventListener("click", () => {
+            if (addBtn() == 0) {
+              alert("add QTY");
+            } else {
+              alert(addBtn() * item.price);
+            }
+          });
         });
       });
     };

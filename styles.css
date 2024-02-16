@@ -7,6 +7,7 @@
 body {
   color: #fff;
   background: #262626;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 nav {
@@ -111,7 +112,7 @@ nav ul li a:hover::after {
   gap: 5rem;
   position: relative;
 }
-.card-container #card-h2 {
+#card-h2 {
   position: absolute;
   top: 13%;
   left: 6%;
@@ -133,7 +134,7 @@ nav ul li a:hover::after {
   box-shadow: 8px 8px 20px #6decf5;
 }
 .card-container .card-image {
-  width: 300px;
+  width: 100%;
   height: 300px;
   border-radius: 10px 10px 0 0;
 }
@@ -149,7 +150,7 @@ nav ul li a:hover::after {
   padding-bottom: 40px;
 }
 .card-container .card .title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 10px;
 }
 .card-container .card .price {
@@ -159,7 +160,7 @@ nav ul li a:hover::after {
   position: absolute;
   bottom: 10px;
 }
-.card-container .card .addtocart {
+.addtocart {
   background: tomato;
   color: #fff;
   padding: 10px;
@@ -170,7 +171,7 @@ nav ul li a:hover::after {
   font-weight: 700;
   transition: 0.3s;
 }
-.card-container .card .addtocart:hover {
+.addtocart:hover {
   background: rgb(184, 45, 20);
 }
 /* preview popup */
@@ -195,34 +196,73 @@ nav ul li a:hover::after {
   background: #262626;
   width: 100%;
   height: 80vh;
+  border-radius: 30px 0 0 30px;
+  position: relative;
+}
+.x-btn {
+  font-size: 4rem;
+  color: rgb(238, 59, 28);
+  position: absolute;
+  top: -30px;
+  right: -22px;
+  transition: 0.3s;
 }
 
+.x-btn:hover {
+  color: tomato;
+  cursor: pointer;
+}
 .preview-card-container .preview-card-image {
   flex-basis: 40%;
   display: flex;
   justify-content: center;
   background: #fff;
+  border-radius: 30px 0 0 30px;
 }
 .preview-card-container .preview-card-image .card-image {
   max-width: 100%;
   max-height: 100%;
+  border-radius: 30px 0 0 30px;
 }
 
 .preview-card-container .preview-card-text {
   flex-basis: 60%;
   padding: 50px;
+  background: #fff;
+  border-left: 1px solid #262626;
 }
 .preview-card-text p {
-  padding: 40px;
-  background: #2d2d2d;
+  color: #000;
+  font-size: 1.5rem;
+  line-height: 5rem;
 }
-.preview-card-text .price {
-  font-size: 5rem;
+.preview-card-text #category {
+  color: tomato;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+.preview-card-text #description {
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+.preview-card-text #escription::before {
+  content: "- ";
+  font-size: 2rem;
+  font-weight: 900;
+  color: tomato;
+}
+.preview-card-text #title {
+  font-weight: 900;
+  color: tomato;
+}
+.preview-card-text #price {
+  font-size: 3.5rem;
+  font-weight: bold;
 }
 .preview-card-text span {
   color: tomato;
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 4rem;
 }
 
 /* * {

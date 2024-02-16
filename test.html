@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantity Input</title>
+    <style>
+      input[type="number"] {
+        width: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="quantityInput">Quantity:</label>
+    <input type="number" id="quantityInput" value="5" min="0" readonly />
+    <button id="decrementBtn">-</button>
+    <button id="incrementBtn">+</button>
+
+    <script>
+      const quantityInput = document.getElementById("quantityInput");
+      const decrementBtn = document.getElementById("decrementBtn");
+      const incrementBtn = document.getElementById("incrementBtn");
+
+      decrementBtn.addEventListener("click", () => {
+        quantityInput.value = Math.max(parseInt(quantityInput.value) - 1, 0);
+      });
+
+      incrementBtn.addEventListener("click", () => {
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+      });
+    </script>
+  </body>
+</html>
